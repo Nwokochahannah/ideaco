@@ -6,9 +6,9 @@
                     <h4 class="title font-weight-bold">
                         Your Ideaspace has been set up 
                     </h4>
-                    <p class="mb-0 mt-5 title-description">Now let's sign you in as the admin</p>
-                    <div class="row">
-                        <div class="col-12">
+                    <p class="mb-0 mt-5 title-description font-weight-bold">Now let's sign you in as the admin</p>
+                    <div class="row justify-content-center">
+                        <div class="col-10">
                             <form @submit.prevent="login">
                                 <div class="mb-0 mt-2">
                                     <label for="name" class="mb-0 mt-1 text-left">Your name</label>
@@ -56,8 +56,9 @@ export default {
                  * sub-domain created for that Ideaspace
                  * something like {shortname.ideaco.com}
                  */
+                this.$store.commit('setLoggedInUser', response);
                 //redirect to dashboard
-                window.location.href = "/app";
+                window.location.href = '/app/'+response.data.organization.shortname;
             }).catch(err => {
                 console.log(err);
             })

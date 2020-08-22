@@ -44,11 +44,27 @@ const onBoardingRoutes = [
         }
     },
     {
-        path: '/join', 
-        name: 'Join an Idea Space',
+        path: '/sign-in', 
         components:{
-            onboarding: require('./pages/Onboarding/Join').default
-        }
+            onboarding: require('./pages/Onboarding/Login/LoginLayout').default
+        },
+        children: [
+            {
+                path: '', 
+                name: 'Login to your Idea Space',
+                component: require('./pages/Onboarding/Login/Index').default
+            },
+            {
+                path: 'email', 
+                name: 'Enter your email to continue',
+                component: require('./pages/Onboarding/Login/Email').default
+            },
+            {
+                path: 'password', 
+                name: 'Enter your password to continue',
+                component: require('./pages/Onboarding/Login/Password').default,
+            }
+        ]
     },
 ];
 
@@ -92,7 +108,7 @@ if(window.location.href.indexOf("start") > -1){
     routes = DashboardRoutes;
 }
 
-export default new VueRouter({
+const router = new VueRouter({
     routes,
     scrollBehavior (to, from, savedPosition) {
         if (savedPosition) {
@@ -100,5 +116,23 @@ export default new VueRouter({
         } else {
             return { x: 0, y: 0 }
         }
-    }
+    },
 }) 
+
+/**
+ * Fetch user token from localstorage to authenticate each 
+ * request
+ */
+router.beforeEach((to, from, next) => {
+    const userInfo = localStorage.getItem('user');
+    if(userInfo){
+        const userData = JSON.parse(userInfo);
+        let token = "Bearer " + userData.data.token;
+        axios.defaults.headers.common['Authorization'] = token;
+        next();
+    }else{
+        next();
+    }
+})
+
+export default router;

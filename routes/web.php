@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 /**
- * The routes that manage creating an ideaspace
+ * The routes that manage creating an idea space
  * or joining one.
  */
 Route::get('/start', 'GetStartedController@start');
-Route::get('/app', 'DashboardController@app');
+Route::get('/app/{organizationShortname}', 'DashboardController@app');
 
 Route::get('/', 'LandingController@home')->name('home');
 Route::get('/about', 'LandingController@about')->name('about');

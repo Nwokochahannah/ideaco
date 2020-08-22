@@ -25,25 +25,12 @@ class OrganizationController extends Controller
     }
 
     /**
-     * Log in the admin of the organization
-     * for the first time
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function firstLogin(Request $request, $organizationId)
-    {
-        $isLoggedIn = $this->model->firstLogin($request, $organizationId);
-
-        return $isLoggedIn;
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, OrganizationRepositoryInterface $model)
+    public function store(Request $request)
     {
         $request->validate(
             [
@@ -53,7 +40,7 @@ class OrganizationController extends Controller
             ]
         );
 
-        $organization = $model->create($request);
+        $organization = $this->model->create($request);
 
         return (new OrganizationResource($organization));
     }
@@ -61,12 +48,13 @@ class OrganizationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int  $id
-     * @return \Illuminate\Http\Response
+     * @param String  $shortname
+     * 
+     * @return Organization|bool
      */
-    public function show(OrganizationRepositoryInterface $organization, $id)
+    public function show($shortname)
     {
-        return $organization->find($id);
+        return new OrganizationResource($this->model->find($shortname));
     }
 
     /**
