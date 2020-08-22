@@ -21021,9 +21021,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "b-container" }, [
+      _c("div", { staticClass: "dahistory", attrs: { id: "history" } }, [
+        _c("div", { staticClass: "input" }, [
+          _c("input", {
+            staticClass: "input__search",
+            attrs: { type: "text" }
+          }),
+          _vm._v(" "),
+          _c("i", { staticClass: "fa fa-search" })
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -40010,8 +40028,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\ideaco\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\ideaco\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\HANNAH\Documents\hng\ideaco\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\HANNAH\Documents\hng\ideaco\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
