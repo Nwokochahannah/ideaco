@@ -21269,27 +21269,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" })
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "b-container" }, [
-      _c("div", { staticClass: "dahistory", attrs: { id: "history" } }, [
-        _c("div", { staticClass: "input" }, [
-          _c("input", {
-            staticClass: "input__search",
-            attrs: { type: "text" }
-          }),
-          _vm._v(" "),
-          _c("i", { staticClass: "fa fa-search" })
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -21311,9 +21293,43 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "content__header__section2" }, [
+        _c("h2", [_vm._v("Explore")]),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass:
+              "content__header__section2__link content__header__section2__link--active"
+          },
+          [_vm._v("Most Active")]
+        ),
+        _vm._v(" "),
+        _c("a", { staticClass: "content__header__section2__link" }, [
+          _vm._v("Highest Voted")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "content__header__section2__link" }, [
+          _vm._v("Most Recent")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "content__header__section2__link filter" }, [
+          _c("i", { staticClass: "fas fa-filter" }),
+          _c("span", [_vm._v(" Filter ")]),
+          _c("i", { staticClass: "fas fa-caret-down" })
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
